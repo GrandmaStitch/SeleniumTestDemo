@@ -1,7 +1,7 @@
 class Locators():
 
     # Search page objects
-    searchInput_textbox_name = 'wd'
+    search_textbox_name = 'wd'
     search_button_id = 'su'
 
     # Search result page objects
