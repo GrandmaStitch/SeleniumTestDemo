@@ -7,7 +7,8 @@ from selenium import webdriver
 class BrowserEngine(object):
     def __init__(self, browser=None):
         self.driver_path = os.path.abspath(
-            os.path.dirname(os.getcwd()) + os.path.sep + 'drivers'+ os.path.sep + 'chromedriver_mac_89')
+            os.path.dirname(os.getcwd()) + os.path.sep + 'drivers'+ os.path.sep + 'chromedriver_win_90')
+        '''
         file_path = os.path.abspath(os.path.dirname(
             os.path.dirname(__file__))) + '/config.ini'
         config = configparser.ConfigParser()
@@ -17,6 +18,8 @@ class BrowserEngine(object):
         else:
             self._browser_type = browser
         self._driver = None
+        '''
+        self._browser_type = browser
 
     def init_driver(self):
         if self._browser_type.lower() == 'chrome':
