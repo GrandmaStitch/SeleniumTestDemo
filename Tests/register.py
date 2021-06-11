@@ -19,26 +19,49 @@ class LoginPage():
 
     def __init__(self, url):
         self.open_url = url
+
+    def setUp(self):
         self.driver = BrowserEngine().init_driver()
 
     def signUp(self):
-        self.driver.maximize_window()
+        # self.driver.maximize_window()
         self.driver.get(self.open_url)
-        time.sleep(10)
+        # time.sleep(10)
         self.driver.find_element_by_link_text('去注册').click()
 
 def main():
     login_url = 'http://h5-saas-dev.myutopa.com/login?redirect=%2Findex'
     verify_code_url = 'https://yunduanxin.net/info/8618411631209/'
     virtual_mobile_num = '18411631209'
-    register = LoginPage(login_url)
-    register.signUp()
+
+    driver_path = os.path.abspath(os.path.dirname(
+        os.path.dirname(__file__))) + os.path.sep + 'drivers' + os.path.sep + 'chromedriver_win_90'
+
+    driver = webdriver.Chrome(driver_path)
+    driver.maximize_window()
+    driver.get(login_url)
+    time.sleep(5)
+    # driver.find_element_by_link_text('去注册').click()
+    driver.find_element_by_xpath('//*[@id="app"]/div/div[1]/div/span/a').click()
 
 
+login_url = 'http://h5-saas-dev.myutopa.com/login?redirect=%2Findex'
+verify_code_url = 'https://yunduanxin.net/info/8618411631209/'
+virtual_mobile_num = '18411631209'
 
+driver_path = os.path.abspath(os.path.dirname(
+    os.path.dirname(__file__))) + os.path.sep + 'drivers' + os.path.sep + 'chromedriver_win_90'
+
+driver = webdriver.Chrome(driver_path)
+driver.maximize_window()
+driver.get(login_url)
+time.sleep(5)
+# driver.find_element_by_link_text('去注册').click()
+driver.find_element_by_xpath('//*[@id="app"]/div/div[1]/div/span/a').click()
+'''
 # url = 'http://h5-saas-dev.myutopa.com/login?redirect=%2Findex'
 # url1 = 'https://yunduanxin.net/info/8618411631209/'
-'''
+
 driver = BrowserEngine(browser='chrome').init_driver()
 driver.get(url)
 driver.find_element_by_link_text('去注册').click()
@@ -62,5 +85,5 @@ driver.quit()
 # driver.close()
 '''
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()

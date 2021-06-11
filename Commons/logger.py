@@ -6,7 +6,7 @@ class Logger(object):
     def __init__(self, logger):
         self.logger = logging.getLogger(logger)
         self.logger.setLevel(logging.DEBUG)
-        file = os.path.abspath(os.path.dirname(os.path.dirname(__file__))) + '/logs/'
+        file = os.path.abspath(os.path.dirname(os.path.dirname(__file__))) + '/Logs/'
         log_path = file + 'test_logs' + '.log'
         fh = logging.FileHandler(log_path, encoding='utf-8')
         fh.setLevel(logging.INFO)
