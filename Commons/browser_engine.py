@@ -9,7 +9,10 @@ class BrowserEngine(object):
         config_path = os.path.abspath(os.path.dirname(
             os.path.dirname(__file__))) + '/config.ini'
         config = configparser.ConfigParser()
-        config.read(config_path, encoding='utf-8')
+        try:
+            config.read(config_path, encoding='utf-8')
+        except:
+            config.read(config_path, encoding='utf-8-sig')
         self._driver_type = config.get('driverName', 'driverVersion')
         self._driver = None
         self.driver_path = os.path.abspath(os.path.dirname(
